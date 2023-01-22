@@ -118,6 +118,28 @@ function CompanyPost() {
               </div>
             </div>
 
+            <div class="pt-5">
+            <label for="category">Job Category</label> <br />
+                <select
+                  id="category"
+                  name="category"
+                  onChange={handleChange}
+                >
+                  <option value="" selected disabled hidden>
+                    Choose here
+                  </option>
+                  <option value="Finance">Finance</option>
+                  <option value="IT">
+                    IT
+                  </option>
+                  <option value="Mechanical">
+                  Mechanical
+                  </option>
+                  <option value="Architecture">Architecture</option>
+                  <option value="Polymer">Polymer</option>
+                </select>
+            </div>
+
             <div class="self-center font-normal whitespace-nowrap text-start text-gray-900 pt-8">
               {" "}
               JOB PAYMENT CRITERIA{" "}

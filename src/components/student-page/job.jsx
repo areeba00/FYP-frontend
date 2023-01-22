@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getJobsbtid } from "../../redux/actions/jobActions";
 import { useParams } from "react-router-dom";
 import displayImage from "../../assets/education.png";
+import displayImage1 from "../../assets/background.jpg";
 
 
 const Job = ({match, history}) => {
@@ -102,19 +103,24 @@ const Job = ({match, history}) => {
                     {/* {console.log(jobId)} */}
 
                     {job && (
-                        <div className="row flex flex-wrap">
-                            <div className="col-md-6 my-8 mx-8">
-                            <img class="rounded-sm" src={displayImage} alt="" />
+                        <div>
+                                        <img class="rounded-sm w-48 h-48" src={displayImage1} alt="" />
+                         <div className="row flex flex-wrap ">
+                            <div className="col-md-6 my-8 mx-8 ">
+                            <img class="rounded-sm w-48 h-48" src={displayImage} alt="" />
                                 </div>
 
                                 <div className="col-md-5 my-8 mx-8">
                                     <h1 class="text-2xl">{job.jobTitle}</h1>
-                                    <p className="text-muted border-top py-2">Description: {job.jobType}</p>
+                                    <p className="text-muted border-top py-2">Description: {job.jobDescription}</p>
                                     </div>
 
                             </div>
+                            </div>
                     )}
             </div>
+
+            {/* <img class="rounded-sm w-48 h-48" src={displayImage1} alt="" /> */}
 
 
 
