@@ -109,7 +109,7 @@ const Job = ({match, history}) => {
 
                                 <div className="col-md-5 my-8 mx-8">
                                     <h1 class="text-2xl">{job.jobTitle}</h1>
-                                    <p className="text-muted border-top py-2">Description: {job.jobDescription}</p>
+                                    <p className="text-muted border-top py-2">Description: {job.jobType}</p>
                                     </div>
 
                             </div>
