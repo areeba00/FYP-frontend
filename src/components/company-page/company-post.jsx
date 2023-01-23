@@ -105,39 +105,26 @@ function CompanyPost() {
                   <option value="" selected disabled hidden>
                     Choose here
                   </option>
-                  <option value="Graduate">Graduate</option>
-                  <option value="Experienced 1-2 years">
-                    Experienced 1-2 years
-                  </option>
-                  <option value="Experienced 2+ years">
-                    Experienced 2+ years
-                  </option>
-                  <option value="Masters">Masters</option>
-                  <option value="Studying">Studying</option>
+                  <option value="Fresh-Graduate">Fresh-Graduate</option>
+                  <option value="Less-than-a-year">Less-than-a-year</option>
+                  <option value="2+ years">2+ years</option>
+                  <option value="5+ years">5+ years</option>
                 </select>
               </div>
             </div>
 
             <div class="pt-5">
-            <label for="category">Job Category</label> <br />
-                <select
-                  id="category"
-                  name="category"
-                  onChange={handleChange}
-                >
-                  <option value="" selected disabled hidden>
-                    Choose here
-                  </option>
-                  <option value="Finance">Finance</option>
-                  <option value="IT">
-                    IT
-                  </option>
-                  <option value="Mechanical">
-                  Mechanical
-                  </option>
-                  <option value="Architecture">Architecture</option>
-                  <option value="Polymer">Polymer</option>
-                </select>
+              <label for="category">Job Category</label> <br />
+              <select id="category" name="category" onChange={handleChange}>
+                <option value="" selected disabled hidden>
+                  Choose here
+                </option>
+                <option value="Finance">Finance</option>
+                <option value="IT">IT</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Polymer">Polymer</option>
+              </select>
             </div>
 
             <div class="self-center font-normal whitespace-nowrap text-start text-gray-900 pt-8">
