@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { forwardRef } from "react";
 import { AtSign, Calendar, Columns, GitHub, Linkedin, Map, MapPin, Paperclip, Phone } from "react-feather";
 import styles from "./Resume.module.css"
 
-function Resume(props){
+const Resume=forwardRef((props,ref)=> {
     const information= props.information;
     const sections= props.sections;
     const [columns, setColumns]=useState([[],[]])
@@ -193,7 +194,8 @@ function Resume(props){
     
 
 return(
-    <div className={styles.container}>
+    <div ref={ref}>
+        <div className={styles.container}>
         <div className={styles.header}>
         <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
             <p className={styles.subheading}>{info.basicInfo?.detail?.title}</p>
@@ -216,7 +218,9 @@ return(
             }</div>
         </div>
     </div>
+    </div>
+    
 );
-}
+});
 
 export default Resume;

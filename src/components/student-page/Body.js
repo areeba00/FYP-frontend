@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef} from "react";
 import { ArrowDown } from 'react-feather';
 import styles from "./Body.module.css"
 import Editor from "./Editor";
 import Resume from "./Resume";
+import ReactToPrint from "react-to-print";
 function Body(){
     const colors = ["239ce" ,"#48bb78" , "#0bc5ea" , "#a0aec0" , "#ed8936"]
     const sections ={
@@ -14,6 +15,7 @@ function Body(){
         summary: "Summary",
         other: "Others",
     };
+    const resumeRef=useRef()
 
     const [resumeInformation, setResumeInformation]= useState({
         [sections.basicInfo]:{
@@ -76,14 +78,26 @@ function Body(){
                 ))}
                     
             </div>
-            <button>Download <ArrowDown /></button>
+            <ReactToPrint
+          trigger={() => {
+            // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+            // to the root node of the returned component as it will be overwritten.
+            return (
+                <button>Download <ArrowDown /></button>
+                 );
+          }}
+          content={() => resumeRef.current}
+        />
+            
         </div>
             <div className={styles.main}>
                 <Editor 
                 sections={sections} 
                 information={resumeInformation} 
                 setInformation={setResumeInformation}/>     
-                <Resume  information={resumeInformation}
+                <Resume  
+                 ref = {resumeRef}
+                 information={resumeInformation}
                  sections={sections} 
                  />      
             </div>
