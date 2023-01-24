@@ -1,4 +1,11 @@
-import { BrowserRouter as Router, Link, Routes, Route, Redirect, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Routes,
+  Route,
+  Redirect,
+  Navigate,
+} from "react-router-dom";
 import Layout from "./components/layout";
 import Display from "./components/home-page/display";
 import Jobs from "./components/home-page/job-categories";
@@ -22,13 +29,12 @@ import ShortListed from "./components/company-page/shortlisted-candidates";
 import Search from "./components/student-page/search2";
 import Body from "./components/student-page/Body";
 import { useDispatch } from "react-redux";
-import {getJobs} from "./redux/actions/jobActions";
-import  {getJobsbtid}  from "./redux/actions/jobActions";
+import { getJobs } from "./redux/actions/jobActions";
+import { getJobsbtid } from "./redux/actions/jobActions";
 import { useEffect } from "react";
 import Job from "./components/student-page/job";
 import Jobroute from "./components/student-page/jobroute";
 function App() {
-
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(getJobs());
@@ -40,18 +46,24 @@ function App() {
   const shouldRedirect = true;
   return (
     <Router>
-
       <Routes>
         <Route exact path="/" element={<Layout />}>
-          <Route path="" element={<><Display /> <Jobs /> <FeaturedJobs /> </>} />
+          <Route
+            path=""
+            element={
+              <>
+                <Display /> <Jobs /> <FeaturedJobs />{" "}
+              </>
+            }
+          />
         </Route>
 
-        <Route path="register" element={<RegisterLayout />} >
+        <Route path="register" element={<RegisterLayout />}>
           <Route exact path="" element={<PersonalInfo />} />
           <Route path="education" element={<EducationInfo />} />
         </Route>
 
-        <Route path="company" element={<CompanyMain />} >
+        <Route path="company" element={<CompanyMain />}>
           <Route exact path="" element={<CompanyDashboard />} />
           <Route path="profile" element={<CompanyProfile />} />
           <Route path="post" element={<CompanyPost />} />
@@ -59,18 +71,17 @@ function App() {
           <Route path="shortlisted" element={<ShortListed />} />
         </Route>
 
-        <Route path="student" element={<StudentMain />} >
+        <Route path="student" element={<StudentMain />}>
           <Route exact path="" element={<StudentDashboard />} />
           <Route path="profile" element={<StudentProfile />} />
           <Route path="edit" element={<EditProfile />} />
           <Route path="search" element={<Search />} />
           <Route path="messages" element={<Messages />} />
           <Route path="body" element={<Body />} />
-          {/* <Route path="/job/:jobId" element={<Job/>} /> */}
+          {/* <Route path="job" element={<IndividualJob />} /> */}
         </Route>
 
-        <Route path="/job/:jobId" element={<Job/>} >
-          </Route>
+        <Route path="job/:jobId" element={<Job />} />
       </Routes>
     </Router>
   );
