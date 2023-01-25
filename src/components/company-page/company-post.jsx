@@ -15,6 +15,12 @@ function CompanyPost() {
     setInputs((inputs) => ({ ...inputs, [name]: value }));
   };
 
+  const handlejobImage = (event) => {
+    console.log(event.target.files[0]);
+    setInputs({
+      ...inputs,[event.target.name]:event.target.files[0],
+    })
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -22,11 +28,11 @@ function CompanyPost() {
       console.log(response);
     });
 
-    console.log(inputs);
+    // console.log(inputs);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} encType="multipart/form-data" >
       <div className="container mx-auto sm:px-4 ">
         <div class="flex flex-wrap ">
           <div class="sm:w-2/3 pr-4 pl-4">
@@ -169,7 +175,13 @@ function CompanyPost() {
               {" "}
               Success Recruitments
             </div>
-            <img src={displayImage} alt="Logo" />
+            {/* <div className="custom-file">
+              <input type="file"
+              className="custom-file-input"
+              name="file"
+              onChange={handlejobImage}/>
+
+            </div> */}
           </div>
         </div>
       </div>
