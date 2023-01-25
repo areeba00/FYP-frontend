@@ -33,6 +33,8 @@ import { getJobs } from "./redux/actions/jobActions";
 import { getJobsbtid } from "./redux/actions/jobActions";
 import { useEffect } from "react";
 import Job from "./components/student-page/job";
+import Signup from "./components/register-page/sign_up";
+import Signin from "./components/register-page/sign_in";
 import Jobroute from "./components/student-page/jobroute";
 function App() {
   const dispatch = useDispatch();
@@ -57,10 +59,12 @@ function App() {
             }
           />
         </Route>
-
+        <Route path="signup" element={<Signup />} />
+        <Route path="signin" element={<Signin />} />
         <Route path="register" element={<RegisterLayout />}>
           <Route exact path="" element={<PersonalInfo />} />
           <Route path="education" element={<EducationInfo />} />
+          
         </Route>
 
         <Route path="company" element={<CompanyMain />}>
@@ -69,6 +73,7 @@ function App() {
           <Route path="post" element={<CompanyPost />} />
           <Route path="jobposting" element={<JobPost />} />
           <Route path="shortlisted" element={<ShortListed />} />
+          
         </Route>
 
         <Route path="student" element={<StudentMain />}>
