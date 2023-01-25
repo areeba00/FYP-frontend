@@ -45,33 +45,21 @@ function Search() {
 
   return (
     <div class="container mx-auto sm:px-4">
-      <div class="flex flex-row ">
-        <div class="sm:w-4/5 pr-4 pl-4">
-          <div className="flex flex-wrap ">
-            {jobs && jobs.map((job) => <Card1 key={job._id} job={job} />)}
-          </div>
+      <form>
+        <div class="relative pt-4">
+          <input
+            type="search"
+            id="default-search"
+            onChange={handlesearch}
+            class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search Jobs..."
+            required
+          />
         </div>
-        <div class="sm:w-1/5">
-          {/* if you remove flex from here the page is responsive but search bar gets disturb */}
-          <div class="flex flex-wrap">
-            <input
-              type="text"
-              name="search"
-              value={text}
-              className=" px-4 py-5 bg-white border rounded-full focus:border-indigo-500 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Search..."
-              onChange={handlesearch}
-            />
-
-            <input
-              type="text"
-              name="search"
-              value={availables}
-              className=" px-4 py-5 bg-white border rounded-full focus:border-indigo-500 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Search..."
-              onChange={handleavailable}
-            />
-          </div>
+      </form>
+      <div class="flex flex-row ">
+        <div className="flex flex-wrap ">
+          {jobs && jobs.map((job) => <Card1 key={job._id} job={job} />)}
         </div>
       </div>
     </div>
