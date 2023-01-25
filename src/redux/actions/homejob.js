@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_NEW_ARRIVALS } from '../constants/homejobs';
-export const getNewArrivals = (sortBy = 'desc', limit=3) => async dispatch => {
+export const getNewArrivals = (sortBy = 'desc', limit=5) => async dispatch => {
 	try {
 		//dispatch({ type: START_LOADING });
 		const response = await axios.get(`/api/company?sortBy=${sortBy}&limit=${limit}`);
