@@ -27,8 +27,8 @@ const Jobs = () => {
                 </div>
                 {/* {JSON.stringify(newArrivals)} */}
                 <div class="container mx-auto">
-                    
-                    <div class="flex flex-wrap -mx-4">
+                  <div class='flex flex-wrap'>
+                  <div class="flex flex-row -mx-4">
                     {newArrivals && newArrivals.map(newArrival => (
                                     <Card1
                                       key={newArrivals._id}
@@ -37,6 +37,7 @@ const Jobs = () => {
                                   ))
                                   }
                     </div>
+                  </div>
 
                     
                 </div>
