@@ -171,11 +171,11 @@ function CompanyPost() {
           </div>
 
           <div class="sm:w-1/3 pr-4 pl-4">
-            <div class="self-center text-2xl font-semibold whitespace-nowrap text-start text-gray-900 pt-8">
+            {/* <div class="self-center text-2xl font-semibold whitespace-nowrap text-start text-gray-900 pt-8">
               {" "}
-              Success Recruitments
+              Upload Image
             </div>
-            {/* <div className="custom-file">
+            <div className="custom-file">
               <input type="file"
               className="custom-file-input"
               name="file"

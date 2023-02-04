@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getJobs } from "../../redux/actions/jobActions";
 //import displayImage from "../../assets/education.png";
-import displayImage from "../../assets/logo.jpg";
+import displayImage from "../../assets/icon.png";
 import logo from "../../assets/logo.jpg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -21,7 +21,7 @@ const Card1 = ({ job }) => {
 
   return (
     <div class="max-w-sm mx-6 my-4 px-4 py-4 rounded overflow-hidden shadow-lg text-center">
-      <img class="rounded" src={displayImage} alt="company logo" />
+      <img class="rounded w-48 h-48" src={displayImage} alt="company logo" />
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 text-center">{job.jobTitle}</div>
         <p class="text-gray-700 text-base text-center">

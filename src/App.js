@@ -72,8 +72,8 @@ function App() {
         </Route>
 
         <Route path="student" element={<StudentMain />}>
-          <Route exact path="" element={<StudentDashboard />} />
-          <Route path="profile" element={<StudentProfile />} />
+          <Route exact path="" element={<StudentProfile />} />
+          {/* <Route path="profile" element={<StudentProfile />} /> */}
           <Route path="edit" element={<EditProfile />} />
           <Route path="search" element={<Search />} />
           <Route path="messages" element={<Messages />} />

@@ -90,7 +90,7 @@ class StudentMain extends Component {
                   <span class="ml-3">Messages</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-indigo-300 "
                   to="/student/profile"
@@ -98,7 +98,7 @@ class StudentMain extends Component {
                   <i className="pi pi-users"></i>
                   <span class="ml-3">Profile</span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-indigo-300 "
