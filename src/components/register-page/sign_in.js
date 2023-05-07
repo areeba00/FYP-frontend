@@ -1,80 +1,152 @@
-import React from "react";
-function sign_in() {
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/signIn.jpg";
+
+function MyForm() {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    if (!formState.email || !formState.password) {
+      setErrorMessage("Please fill in all the fields");
+      {
+        return;
+      }
+    }
+    event.preventDefault();
+    console.log(formState);
+  };
+
   return (
     <div>
-      <section class="h-screen">
-        <div class="px-6 h-full text-gray-800">
-          <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-            <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                class="w-full"
-                alt="Sample image"
-              />
-            </div>
-            <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-              <form>
-                <div class="mb-6">
-                  <input
-                    type="email"
-                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="exampleFormControlInput2"
-                    placeholder="Email address"
-                  />
-                </div>
+      <section class="relative flex flex-wrap lg:h-screen lg:items-center">
+        <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
+          <div class="mx-auto max-w-lg text-center">
+            <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+              Smart Job Portal
+            </h1>
 
-                <div class="mb-6">
-                  <input
-                    type="password"
-                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="exampleFormControlInput2"
-                    placeholder="Password"
-                  />
-                </div>
-
-                <div class="flex justify-between items-center mb-6">
-                  <div class="form-group form-check">
-                    <input
-                      type="checkbox"
-                      class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                      id="exampleCheck2"
-                    />
-                    <label
-                      class="form-check-label inline-block text-gray-800"
-                      for="exampleCheck2"
-                    >
-                      Remember me
-                    </label>
-                  </div>
-                  <a href="#!" class="text-gray-800">
-                    Forgot password?
-                  </a>
-                </div>
-
-                <div class="text-center lg:text-left">
-                  <button
-                    type="button"
-                    class="inline-block px-7 py-3 bg-indigo-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  >
-                    Login
-                  </button>
-                  <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-                    Don't have an account?
-                    <a
-                      href="signup"
-                      class="ml-4 text-indigo-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                    >
-                      Sign up
-                    </a>
-                  </p>
-                </div>
-              </form>
-            </div>
+            <p class="mt-4 text-gray-500">
+              Welcome back! We're excited to see you again. Login to your
+              account to stay up-to-date with the latest job opportunities,
+              manage your applications, and connect with top recruiters. Let's
+              take the next step in your career journey together!
+            </p>
           </div>
+
+          <form
+            onSubmit={handleSubmit}
+            class="mx-auto mt-8 mb-0 max-w-md space-y-4"
+          >
+            <div class="relative">
+              <input
+                type="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                placeholder="Enter email"
+              />
+
+              <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div class="relative">
+              <input
+                type="password"
+                class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                placeholder="Enter password"
+                name="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+
+              <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </span>
+
+              <div class="relative">
+                {errorMessage && (
+                  <p>
+                    <div
+                      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                      role="alert"
+                    >
+                      <span class="font-medium">Error!</span> {errorMessage}
+                    </div>
+                  </p>
+                )}
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-gray-500">
+                No account?
+                <Link
+                  to="/signup"
+                  class="underline whitespace-nowrap text-base text-sm text-indigo-600 hover:text-indigo-700"
+                >
+                  Sign Up
+                </Link>
+              </p>
+
+              <button
+                type="submit"
+                class="inline-block rounded-lg px-5 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+              >
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+          <img src={logo} class="w-full" alt="Sample image" />
         </div>
       </section>
     </div>
   );
 }
-
-export default sign_in;
+export default MyForm;
