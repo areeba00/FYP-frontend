@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-//  import Card from '@mui/material/Card';
-import CardContent from "@mui/material/Card";
-import { CardActions } from "@mui/material";
-import { Link } from "react-router-dom";
 import "./student.css";
 import { useEffect } from "react";
 import { useState } from "react";
