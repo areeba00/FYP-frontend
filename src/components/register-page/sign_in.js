@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/signIn.jpg";
+import axios from "axios";
 
 function MyForm() {
   const [formState, setFormState] = useState({
@@ -10,20 +11,64 @@ function MyForm() {
 
   const [errorMessage, setErrorMessage] = useState("");
 
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormState({ ...formState, [name]: value });
+  // };
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value });
-  };
+    setFormState({ ...formState, [event.target.name]: event.target.value });
+    };
 
-  const handleSubmit = (event) => {
-    if (!formState.email || !formState.password) {
-      setErrorMessage("Please fill in all the fields");
-      {
-        return;
-      }
-    }
+  // const handleSubmit = (event) => {
+  //   if (!formState.email || !formState.password) {
+  //     setErrorMessage("Please fill in all the fields");
+  //     {
+  //       return;
+  //     }
+  //   }
+  //   const userData = {
+  //     email: formState.email,
+  //     password: formState.password
+  //   };
+
+  //   axios.post('/api/login/company', userData).then((response) => {
+  //     console.log(response.status, response.data.token);
+  //   });
+  //   event.preventDefault();
+  //   console.log(formState);
+  // };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
+    const userData = {
+      email: formState.name,
+      password: formState.job
+    };
+
+    try {
+      const response = await axios.post('/api/login/company', formState);
+
+      // Handle the response from the backend API
+      console.log(response.data.token.token); 
+      
+      const token = await response.data.token.token
+      //     localStorage.setItem('token', token)
+      //     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      //     window.location = '/companyHome';
+      // }
+      console.log(response)
+
+      // window.location.href = '/companyHome';
+
+
+      // Perform any necessary actions after successful authentication
+      // For example, store authentication token in local storage or Redux state
+    } catch (error) {
+      // Handle any errors that occurred during the request
+      console.error(error);
+    }
   };
 
   return (

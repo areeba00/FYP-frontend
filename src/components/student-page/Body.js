@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef} from "react";
 import { ArrowDown } from 'react-feather';
+import { ArrowUp } from 'react-feather';
 import styles from "./Body.module.css"
 import Editor from "./Editor";
 import Resume from "./Resume";
@@ -61,6 +62,11 @@ function Body(){
         },
     });
 
+    const handleRedirect = () => {
+        window.location.href = 'https://7aca-39-59-194-222.ngrok-free.app/upload';
+      };
+    
+
     useEffect(()=>{
         console.log(resumeInformation);
     },[resumeInformation]);
@@ -83,7 +89,10 @@ function Body(){
             // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
             // to the root node of the returned component as it will be overwritten.
             return (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <button>Download <ArrowDown /></button>
+                <button onClick={handleRedirect}>Upload <ArrowUp /></button>
+                    </div>
                  );
           }}
           content={() => resumeRef.current}

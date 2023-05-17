@@ -36,6 +36,8 @@ import Job from "./components/student-page/job";
 import Signup from "./components/register-page/sign_up";
 import Signin from "./components/register-page/sign_in";
 import Jobroute from "./components/student-page/jobroute";
+import ResumeUpload from "./components/student-page/uploadresume";
+import CompanyHomePage from "./components/company_home";
 function App() {
   const dispatch = useDispatch();
   // useEffect(() => {
@@ -59,6 +61,7 @@ function App() {
             }
           />
         </Route>
+        <Route exact path="/companyHome" element={<CompanyHomePage />}></Route>
         <Route path="signup" element={<Signup />} />
         <Route path="signin" element={<Signin />} />
         <Route path="register" element={<RegisterLayout />}>
@@ -81,7 +84,7 @@ function App() {
           {/* <Route path="profile" element={<StudentProfile />} /> */}
           <Route path="edit" element={<EditProfile />} />
           <Route path="search" element={<Search />} />
-          <Route path="messages" element={<Messages />} />
+          <Route path="upload" element={<ResumeUpload />} />
           <Route path="body" element={<Body />} />
           {/* <Route path="job" element={<IndividualJob />} /> */}
         </Route>
