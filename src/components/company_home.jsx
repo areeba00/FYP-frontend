@@ -3,8 +3,18 @@ import { Outlet, Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import { useEffect } from "react";
 import { useState } from "react";
+import "./companyhome.css";
+import { FaPhone,FaMapMarkerAlt,FaEnvelope } from 'react-icons/fa';
 import axios from "axios";
-import displayImage from "../assets/background.jpg";
+import companyhome from "../assets/companyhome.svg";
+
+const Card = ({ title, description }) => (
+  <div className="card">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+);
+
 
 function CompanyHomePage() {
 
@@ -60,9 +70,86 @@ function CompanyHomePage() {
       </header>
       <Outlet />
 
-      <div class="container">
-      <img src={displayImage} class="img-fluid" alt="Responsive image"/>
+
+
+
+
+    <div class="container">
+    <body>
+  <section class="about-us">
+    <div class="about">
+      <div class ="pic">
+      <img src={companyhome} alt="company" />
+      </div>
+      <div class="text">
+        <h2>Systems Limited</h2>
+        <h5>Web Development & <span>Design</span></h5>
+          <p>At Systems Limted, we are passionate about crafting innovative software solutions that drive digital transformation for businesses across industries. With a team of experienced and talented software engineers, designers, and project managers, we specialize in delivering cutting-edge software products and services.
+
+Our mission is to empower our clients with technology-driven solutions that optimize their operations, enhance customer experiences, and accelerate business growth. </p>
+        <div class="data">
+        <a href="#" class="hire">Apply Now</a>
         </div>
+      </div>
+    </div>
+  </section>
+</body>
+<br></br>
+
+<div className="grid grid-cols-3 gap-6">
+                <div className="w-full px-4 py-5 rounded-lg shadow h-38 column">
+
+                    <div className="flex items-center flex-col text-center">
+                    <div className="flex items-center">
+                    <FaPhone size={24} className="text-white mb-2" />
+                    <span className="text-2xl font-medium colors pl-3">Call Us:</span>
+                    </div>
+                    <span className="text-lg colors mt-3">+1 (123) 456-7890</span>
+                    <span className="text-lg colors mt-2">+1 (123) 456-7890</span>
+                    <br></br>
+                     
+                 </div>
+
+                </div>
+                <div className="w-full px-4 py-5 rounded-lg shadow h-38 column">
+
+                    <div className="flex items-center flex-col text-center">
+                    <div className="flex items-center">
+                    <FaMapMarkerAlt size={24} className="text-white mb-2" />
+                    <span className="text-2xl font-medium colors pl-3">Location:</span>
+                    </div>
+                    <span className="text-lg colors mt-3">DHA Phase VII- Ex prak View Block</span>
+                    <span className="text-lg colors mt-2">Block-B Garden Town, Lahore</span>
+                    <br></br>
+                     
+                 </div>
+
+                </div> 
+                
+                <div className="w-full px-4 py-5 rounded-lg shadow h-38 column">
+
+                    <div className="flex items-center flex-col text-center">
+                    <div className="flex items-center">
+                    <FaEnvelope size={24} className="text-white mb-2" />
+                    <span className="text-2xl font-medium colors pl-3">Email:</span>
+                    </div>
+                    <span className="text-lg colors mt-3">hr@systemlimited.com</span>
+                    <span className="text-lg colors mt-2">careers@systems.com</span>
+                    <br></br>
+                     
+                 </div>
+
+                </div> 
+
+              </div>
+      </div>
+
+      <br></br>
+<br></br>
+<br></br>
+
+
+
 
       <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
         <div class="sm:flex sm:items-center sm:justify-between">
