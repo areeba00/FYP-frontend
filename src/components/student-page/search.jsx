@@ -24,6 +24,7 @@ function Search() {
   // const {jobs} = useSelector(state => state.jobs); dont use this rn
 
   const { jobs } = useSelector((state) => state.jobss); //jobss is the variable used in store.js and const{jobs} is the array used in the reducer
+  console.log(" here");
 
   return (
     <div class="sm pr-4 pl-4">
@@ -75,6 +76,7 @@ function Search() {
       <div class="container py-3">
         <div className="row">
           {jobs && jobs.map((job) => <Card1 key={job._id} job={job} />)}
+        
         </div>
       </div>
     </div>
