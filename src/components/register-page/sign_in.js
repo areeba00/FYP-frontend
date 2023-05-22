@@ -36,6 +36,8 @@ function MyForm() {
       // console.log(response.data.token.token); 
       
       const token = await response.data.token.token
+      // console.log("token is here");
+      // console.log(response.data.token.token);
           // localStorage.setItem('token', token)
           localStorage.setItem("token", 'Bearer ' + token)
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

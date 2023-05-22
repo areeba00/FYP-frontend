@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from "react";
 import { useState } from "react";
 import "./companyhome.css";
-import { FaPhone,FaMapMarkerAlt,FaEnvelope } from 'react-icons/fa';
+// import { FaPhone,FaMapMarkerAlt,FaEnvelope } from 'react-icons/fa';
 import axios from "axios";
 import companyhome from "../assets/companyhome.svg";
 
@@ -63,7 +63,7 @@ function CompanyHomePage() {
           {/* <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>Welcome, {userData.companyEmail}!</h1> */}
 
           {userData && (
-        <h1>Welcome, {userData.companyEmail}!</h1>
+        <h1>Welcome, {userData.companyName}!</h1>
       )}
           </div>
         </div>
@@ -87,21 +87,21 @@ function CompanyHomePage() {
           <p>At Systems Limted, we are passionate about crafting innovative software solutions that drive digital transformation for businesses across industries. With a team of experienced and talented software engineers, designers, and project managers, we specialize in delivering cutting-edge software products and services.
 
 Our mission is to empower our clients with technology-driven solutions that optimize their operations, enhance customer experiences, and accelerate business growth. </p>
-        <div class="data">
+        {/* <div class="data">
         <a href="#" class="hire">Apply Now</a>
-        </div>
+        </div> */}
       </div>
     </div>
   </section>
 </body>
 <br></br>
 
-<div className="grid grid-cols-3 gap-6">
+<div className="grid grid-cols-3 gap-6 pl-12 ml-4">
                 <div className="w-full px-4 py-5 rounded-lg shadow h-38 column">
 
                     <div className="flex items-center flex-col text-center">
                     <div className="flex items-center">
-                    <FaPhone size={24} className="text-white mb-2" />
+                    {/* <FaPhone size={24} className="text-white mb-2" /> */}
                     <span className="text-2xl font-medium colors pl-3">Call Us:</span>
                     </div>
                     <span className="text-lg colors mt-3">+1 (123) 456-7890</span>
@@ -115,7 +115,7 @@ Our mission is to empower our clients with technology-driven solutions that opti
 
                     <div className="flex items-center flex-col text-center">
                     <div className="flex items-center">
-                    <FaMapMarkerAlt size={24} className="text-white mb-2" />
+                    {/* <FaMapMarkerAlt size={24} className="text-white mb-2" /> */}
                     <span className="text-2xl font-medium colors pl-3">Location:</span>
                     </div>
                     <span className="text-lg colors mt-3">DHA Phase VII- Ex prak View Block</span>
@@ -130,7 +130,7 @@ Our mission is to empower our clients with technology-driven solutions that opti
 
                     <div className="flex items-center flex-col text-center">
                     <div className="flex items-center">
-                    <FaEnvelope size={24} className="text-white mb-2" />
+                    {/* <FaEnvelope size={24} className="text-white mb-2" /> */}
                     <span className="text-2xl font-medium colors pl-3">Email:</span>
                     </div>
                     <span className="text-lg colors mt-3">hr@systemlimited.com</span>
