@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
-// import { Button } from 'antd';
-// import { UploadOutlined } from '@ant-design/icons';
+
+
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function ResumeUpload() {
-  // const handleClick = () => {
-  //   axios.get('https://0423-34-125-92-219.ngrok-free.app')
-  //     .then(response => {
-  //       // Handle the response data here
-  //       console.log(response.data);
-  //     })
-  //     .catch(error => {
-  //       // Handle the error here
-  //       console.error(error);
-  //     });
-  // };
-    const handleRedirect = () => {
-    window.location.href = 'https://7aca-39-59-194-222.ngrok-free.app/upload';
-  };
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    axios.get('https://26be-39-59-198-54.ngrok-free.app/upload')
+    .then(response => {
+      // Access the response data
+      const responseData = response.data;
+      // Process the response data as needed
+      console.log(responseData);
+    })
+  }, []);
 
   return (
     <div>
-      <button onClick={handleRedirect}>Click Me</button>
+      {/* {data ? (
+        // Render the data
+        <p>{data}</p>
+      ) : (
+        // Render a loading indicator or other content while data is being fetched
+        <p>Loading...</p>
+      )} */}
     </div>
   );
 }
+
+
 
 
 export default ResumeUpload;

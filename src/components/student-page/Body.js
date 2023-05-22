@@ -21,6 +21,140 @@ function Body(){
     // const {available} = useSelector(state => state.availablee);
     console.log(jobs);
 
+
+    
+    // const queryString = jobs;
+    // const result = queryString.reduce((obj, item, index) => {
+    //     obj[index] = item;
+    //     return obj;
+    //   }, {});
+    //   console.log("here");
+    //   console.log(result);
+
+
+
+
+    // useEffect(() => {
+    //     // Function to send the API request
+    //     const sendRequest = async () => {
+    //       try {
+    //         // Make the API request to Ngrok
+    //         const response = await axios.post('https://2d81-39-59-198-54.ngrok-free.app/jobdata', result, {
+    //             headers: {
+    //               'Content-Type': 'application/json'
+    //             }
+    //           });
+
+    //                   // Handle the response data
+    //     console.log("Data sent successfully:");
+    //       } catch (error) {
+    //         console.error('Error sending API request:', error);
+    //       }
+    //     };
+    
+    //     // Call the function when the component is mounted
+    //     sendRequest();
+    //   }, [jobs]);
+
+
+    // const queryString = jobs;
+    // const result = queryString.reduce((obj, item, index) => {
+    //     obj[index] = item;
+    //     return obj;
+    //   }, {});
+    //   console.log("here");
+    //   console.log(result);
+    // useEffect(() => {
+    //     const delay = 2000; // Delay in milliseconds (e.g., 2000 = 2 seconds)
+    
+    //     const timer = setTimeout(async () => {
+    //       // Code to execute after the delay
+    // //     // Function to send the API request
+    //     const sendRequest = async () => {
+    //       try {
+    //         // Make the API request to Ngrok
+    //         const response = await axios.post('https://2d81-39-59-198-54.ngrok-free.app/jobdata', result, {
+    //             headers: {
+    //               'Content-Type': 'application/json'
+    //             }
+    //           });
+
+    //                   // Handle the response data
+    //     console.log("Data sent successfully:");
+    //       } catch (error) {
+    //         console.error('Error sending API request:', error);
+    //       }
+    //     };
+    
+    //     // Call the function when the component is mounted
+    //     sendRequest();
+    //     }, delay);
+    
+    //     // Cleanup function to cancel the timer if the component unmounts or changes
+    //     return () => clearTimeout(timer);
+    //   }, [jobs]);
+
+    //   const sendData = async () => {
+    //     // Code to send data
+    //         //         // Make the API request to Ngrok
+    //         const response = await axios.post('https://2d81-39-59-198-54.ngrok-free.app/jobdata', result, {
+    //             headers: {
+    //               'Content-Type': 'application/json'
+    //             }
+    //           });
+    //     console.log('Sending data...');
+    
+
+
+    // const queryString = jobs;
+
+
+    // const [queryString, setQueryString] = useState([]);
+    // useEffect(() => {
+    //     // Set the query string data from the jobs variable
+    //     setQueryString(jobs);
+
+    //     console.log("data is shown");
+    //     console.log(queryString);
+    //   }, [jobs]);
+
+    // useEffect(() => {
+    //     // Function to send the API request
+    //     const sendRequest = async () => {
+    //       try {
+    //         if (queryString.length === 3) {
+    //           console.log('queryString is empty. Skipping API request.');
+    //           return;
+    //         }
+      
+    //         // Compute the result object inside the useEffect hook
+    //         const result = queryString.reduce((obj, item, index) => {
+    //           obj[index] = item;
+    //           return obj;
+    //         }, {});
+    //         console.log("here");
+    //         console.log(result);
+      
+    //         // Make the API request to Ngrok
+    //         const response = await axios.post('https://2d81-39-59-198-54.ngrok-free.app/jobdata', result, {
+    //           headers: {
+    //             'Content-Type': 'application/json'
+    //           }
+    //         });
+      
+    //         // Handle the response data
+    //         console.log("Data sent successfully:", response.data);
+    //       } catch (error) {
+    //         console.error('Error sending API request:', error);
+    //       }
+    //     };
+      
+    //     // Call the function when the component is mounted
+    //     sendRequest();
+    //   }, [queryString]);
+
+
+
     const colors = ["239ce" ,"#48bb78" , "#0bc5ea" , "#a0aec0" , "#ed8936"]
     const sections ={
         basicInfo: "Basic Info",
@@ -78,14 +212,19 @@ function Body(){
     });
 
     const handleRedirect = () => {
+        const queryString = jobs;
 
-        const queryString = `data=${JSON.stringify(jobs)}`;
-        console.log(queryString);
-
+        const result = queryString.reduce((obj, item, index) => {
+            obj[index] = item;
+            return obj;
+          }, {});
+          
+          console.log(result);
             // Make an HTTP POST request to the Ngrok API endpoint
-            axios.post('https://2d81-39-59-198-54.ngrok-free.app/upload', queryString)
+            axios.post('https://26be-39-59-198-54.ngrok-free.app/upload',{headers:{'Content-Type': 'application/json'}},result)
+              
             .then(response => {
-                console.log('Data sent successfully:', response.data);
+                console.log('Data sent successfully');
             })
             .catch(error => {
                 console.error('Error sending data:', error);
@@ -94,12 +233,37 @@ function Body(){
 
         // window.location.href = `${ngrokURL}/path?${queryString}`;
 
-        // window.location.href = 'https://50a6-39-59-167-121.ngrok-free.app/upload';
+        window.location.href = 'https://e2e1-39-59-198-54.ngrok-free.app/upload';
+      };
+
+      const handleRedirect1 = () => {
+        const queryString = jobs;
+
+        const result = queryString.reduce((obj, item, index) => {
+            obj[index] = item;
+            return obj;
+          }, {});
+          
+          console.log("result data is shown");
+          console.log(result);
+            // Make an HTTP POST request to the Ngrok API endpoint
+            axios.post('https://e2e1-39-59-198-54.ngrok-free.app/jobdata', result, {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              })
+              
+            .then(response => {
+                console.log('Data sent successfully');
+            })
+            .catch(error => {
+                console.error('Error sending data:', error);
+            });
       };
     
 
     useEffect(()=>{
-        console.log(resumeInformation);
+        // console.log(resumeInformation);
     },[resumeInformation]);
     return(
         <div className={styles.container}>
@@ -123,6 +287,7 @@ function Body(){
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <button>Download <ArrowDown /></button>
                 <button onClick={handleRedirect}>Upload <ArrowUp /></button>
+                <button onClick={handleRedirect1}>Upload <ArrowUp /></button>
                     </div>
                  );
           }}
