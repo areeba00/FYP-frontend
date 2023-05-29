@@ -38,6 +38,7 @@ import Signin from "./components/register-page/sign_in";
 import Jobroute from "./components/student-page/jobroute";
 import ResumeUpload from "./components/student-page/uploadresume";
 import CompanyHomePage from "./components/company_home";
+import StudentHome from "./components/student_home";
 function App() {
   const dispatch = useDispatch();
   // useEffect(() => {
@@ -52,6 +53,17 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Layout />}>
+        <Route
+            path=""
+            element={
+              <>
+                <Display /> {" "}
+              </>
+            }
+          />
+        </Route>
+        
+        <Route exact path="/studenthome" element={<StudentHome />}>
           <Route
             path=""
             element={

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
-import logo from "../../assets/companyLogo.jpg";
+import userlogo from "../../assets/userlogo.png";
 // import Job from "./job";
 class StudentMain extends Component {
   state = {};
@@ -31,7 +31,7 @@ class StudentMain extends Component {
                 </div>
                 <div class="text-center text-base font-medium text-indigo-700">
                   {" "}
-                  Ryan Ahmad{" "}
+                  Areeba Khawar{" "}
                 </div>
               </div>
             </div>
@@ -45,13 +45,13 @@ class StudentMain extends Component {
                 <div class="flex flex-row justify-center">
                   <img
                     class="w-14 h-14 rounded-full"
-                    src={logo}
+                    src={userlogo}
                     alt="Rounded avatar"
                   />
                 </div>
                 <div class="text-center text-base font-medium text-indigo-700 pt-4">
                   {" "}
-                  Ryan Ahmad{" "}
+                  Areeba Khawar{" "}
                 </div>
               </div>
               <li>
@@ -81,7 +81,7 @@ class StudentMain extends Component {
                   <span class="ml-3">Create CV</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-indigo-300 "
                   to="/student/upload"
@@ -89,7 +89,7 @@ class StudentMain extends Component {
                   <i className="pi pi-envelope"></i>
                   <span class="ml-3">Upload CV</span>
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-indigo-300 "

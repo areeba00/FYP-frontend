@@ -37,7 +37,7 @@ function MyForm() {
       
       const token = await response.data.token.token
       // console.log("token is here");
-      // console.log(response.data.token.token);
+      // console.log(token);
           // localStorage.setItem('token', token)
           localStorage.setItem("token", 'Bearer ' + token)
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -54,7 +54,7 @@ function MyForm() {
         })
           .then(response => {
             setData(response.data.user_dta);
-            console.log(response.data.user_dta); 
+            // console.log(response.data.user_dta); 
 
             const queryParams = new URLSearchParams();
             queryParams.append('userData', JSON.stringify(response.data.user_dta));
@@ -62,8 +62,53 @@ function MyForm() {
             
             localStorage.setItem('userData', JSON.stringify(response.data.user_dta));
             console.log('Stored userData:', localStorage.getItem('userData')); 
-            console.log(queryString);
+            // console.log(queryString);
             window.location.href = `/companyHome?${queryString}`;
+          })
+          .catch(error => {
+            console.log(error);
+            // Handle errors
+          });
+    } catch (error) {
+      // Handle any errors that occurred during the request
+      console.error(error);
+    }
+
+    try {
+      const response = await axios.post('/api/login/applicant', formState);
+
+      // Handle the response from the backend API
+      // console.log(response.data.token.token); 
+      
+      const token = await response.data.token.token
+      // console.log("token is here");
+      // console.log(token);
+          // localStorage.setItem('token', token)
+          localStorage.setItem("token", 'Bearer ' + token)
+          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+          // (this.$router.push({name:'/companyHome'}));
+          // console.log(response.config.headers);
+          // window.location = '/companyHome';
+      // }
+      console.log(response)
+      axios.get('/api/login/gettokenapplicant', {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+          
+        })
+          .then(response => {
+            setData(response.data.user_dta);
+            // console.log(response.data.user_dta); 
+
+            const queryParams = new URLSearchParams();
+            queryParams.append('userData1', JSON.stringify(response.data.user_dta));
+            const queryString = queryParams.toString();
+            
+            localStorage.setItem('userData1', JSON.stringify(response.data.user_dta));
+            console.log('Stored userData:', localStorage.getItem('userData1')); 
+            // console.log(queryString);
+            window.location.href = `/studenthome?${queryString}`;
           })
           .catch(error => {
             console.log(error);
@@ -83,7 +128,7 @@ function MyForm() {
     localStorage.setItem('userData', JSON.stringify(data));
     console.log('Stored userData:', localStorage.getItem('userData')); 
     console.log(queryString);
-    // window.location.href = `/companyHome?${queryString}`;
+    window.location.href = `/companyHome?${queryString}`;
   };
 
   return (
@@ -193,7 +238,7 @@ function MyForm() {
               </p>
 
               <button
-                onClick={handleRedirect}
+                onClick={handleSubmit}
                 type="submit"
                 class="inline-block rounded-lg px-5 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
               >

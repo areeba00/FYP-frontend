@@ -221,7 +221,7 @@ function Body(){
           
           console.log(result);
             // Make an HTTP POST request to the Ngrok API endpoint
-            axios.post('https://26be-39-59-198-54.ngrok-free.app/upload',{headers:{'Content-Type': 'application/json'}},result)
+            axios.post('https://dc2a-119-160-99-185.ngrok-free.app/upload',{headers:{'Content-Type': 'application/json'}},result)
               
             .then(response => {
                 console.log('Data sent successfully');
@@ -233,7 +233,7 @@ function Body(){
 
         // window.location.href = `${ngrokURL}/path?${queryString}`;
 
-        window.location.href = 'https://e2e1-39-59-198-54.ngrok-free.app/upload';
+        window.location.href = 'https://dc2a-119-160-99-185.ngrok-free.app/upload';
       };
 
       const handleRedirect1 = () => {
@@ -247,7 +247,7 @@ function Body(){
           console.log("result data is shown");
           console.log(result);
             // Make an HTTP POST request to the Ngrok API endpoint
-            axios.post('https://e2e1-39-59-198-54.ngrok-free.app/jobdata', result, {
+            axios.post('https://dc2a-119-160-99-185.ngrok-free.app/jobdata', result, {
                 headers: {
                   'Content-Type': 'application/json'
                 }

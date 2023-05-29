@@ -22,7 +22,7 @@ class StudentProfile extends Component {
                     <div class="flex flex-wrap ">
                         <div class="sm:w-2/3 pr-4 pl-4">
                             <div class="self-center text-2xl font-semibold whitespace-nowrap text-start text-gray-900 pt-8"> About </div>
-                            <p class="pt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                            <p class="pt-3">As a computer science student, I am passionate about exploring the exciting world of technology and its applications. With a strong foundation in computer science principles, programming languages, and software development methodologies, I strive to deepen my knowledge and stay up to date with the latest advancements in the field. Beyond my technical abilities, I value continuous learning and am always curious to explore new technologies and emerging trends in the industry. I am a proactive learner, constantly seeking opportunities to expand my skill set and enhance my understanding of the ever-evolving field of computer science.</p>
                     <div class="flex flex-wrap ">
                         <div className="container mx-auto mt-12">
 
@@ -109,15 +109,15 @@ class StudentProfile extends Component {
                                     </div>
                                     <div class=" pt-4">
                                         <i className="pi pi-envelope pr-2 pl-5"></i>
-                                         ryamadams@gmail.com
+                                         2019cs109@student.uet.edu.pk
                                     </div>
                                         <div class=" pt-4">
                                             <i className="pi pi-linkedin pr-2 pl-5"></i>
-                                            ryamadams@gmail.com
+                                            www.linkedin/areeba08
                                         </div>
                                     <div class=" pt-4">
                                     <i className="pi pi-github pr-2 pl-5"></i>
-                                            ryamadams@gmail.com
+                                    https://github.com/areeba
                                     </div>
                                     <hr class="mt-3"/>
                                     <div className="text-md font-medium text-gray-900 truncate text-center pt-5">

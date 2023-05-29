@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
-import logo from "../../assets/companyLogo.jpg";
+import userlogo from "../../assets/userlogo.png";
 import axios from "axios";
 
 function CompanyProfile() {
@@ -121,13 +121,6 @@ function CompanyProfile() {
               {userData?.users[0]?.firstName}
               {userData?.users[0]?.lastName}
             </div>
-          </div>
-          <div class="flex flex-row justify-center">
-            <img
-              class="w-24 h-24 rounded-full mt-8 ml-32"
-              src={logo}
-              alt="Rounded avatar"
-            />
           </div>
         </div>
       </div>

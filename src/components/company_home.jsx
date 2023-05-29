@@ -57,15 +57,35 @@ function CompanyHomePage() {
             </Link>
           </div>
           <nav class="hidden md:flex space-x-10">
-          </nav>
+  <div class="flex items-center">
+          <Link
+            to="/company"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+          >
+            Profile
+          </Link>
+          {userData && (
+            <h1 class="ml-4">Welcome, {userData.companyName}!</h1>
+          )}
+        </div>
+      </nav>
+          {/* <nav class="hidden md:flex space-x-10">
+          <Link
+              to="/company"
+              class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+            >
+              {" "}
+              Profile
+            </Link>
+          </nav> */}
 
-          <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          {/* <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>Welcome, {userData.companyEmail}!</h1> */}
+          {/* <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
           {userData && (
         <h1>Welcome, {userData.companyName}!</h1>
       )}
-          </div>
+
+          </div> */}
         </div>
       </header>
       <Outlet />
