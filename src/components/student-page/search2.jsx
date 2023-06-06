@@ -1,100 +1,70 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //  import Card from '@mui/material/Card';
- import CardContent from '@mui/material/Card';
- import { CardActions } from '@mui/material';
+import CardContent from "@mui/material/Card";
+import { CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
-import './student.css'
-import {useEffect} from "react";
-import {useState} from "react";
-import {useDispatch, useSelector} from 'react-redux';
-import{getJobs} from "../../redux/actions/jobActions";
-import { getProductsByavailableFilter } from '../../redux/actions/available';
-import axios from 'axios';
+import "./student.css";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getJobs } from "../../redux/actions/jobActions";
+import { getProductsByavailableFilter } from "../../redux/actions/available";
+import axios from "axios";
 import Card1 from "./Card";
 import { useStateValue } from "../../stateprovider";
 import styled from "styled-components";
-import {getProductsByFilter} from '../../redux/actions/filterActions';
+import { getProductsByFilter } from "../../redux/actions/filterActions";
 function Search() {
-    const [text, setText] = useState("");
-    const [availables, setAvailable] = useState("");
+  const [text, setText] = useState("");
+  const [availables, setAvailable] = useState("");
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(getJobs());
-    }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getJobs());
+  }, [dispatch]);
 
-    // useEffect(() => {
-    //   dispatch(getProductsByavailableFilter());
-    // }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getProductsByavailableFilter());
+  // }, [dispatch]);
 
-    const handlesearch = e => {
+  const handlesearch = (e) => {
     setText(e.target.value);
-    
-    dispatch(getProductsByFilter({type: 'text', query:e.target.value}));
-    }
 
-    const handleavailable = e => {
-      setAvailable(e.target.value);
-      
-      dispatch(getProductsByFilter({type: 'type1', query:e.target.value}));
-      }
-    // const {jobs} = useSelector(state => state.jobs); dont use this rn
+    dispatch(getProductsByFilter({ type: "text", query: e.target.value }));
+  };
 
+  const handleavailable = (e) => {
+    setAvailable(e.target.value);
 
-    const {jobs} = useSelector(state => state.jobss); //jobss is the variable used in store.js and const{jobs} is the array used in the reducer
-    // const {available} = useSelector(state => state.availablee);
+    dispatch(getProductsByFilter({ type: "type1", query: e.target.value }));
+  };
+  // const {jobs} = useSelector(state => state.jobs); dont use this rn
 
-    return (
-        <div class="container mx-auto sm:px-4">
-            <div  class="flex flex-row ">
-                
-                <div class="sm:w-4/5 pr-4 pl-4">
-                <div className='flex flex-wrap '>
-                                  {jobs && jobs.map(job => (
-                                    <Card1
-                                      key={job._id}
-                                      job={job}
-                                    />
-                                  ))
-                                  }
-                            </div>
-                </div>
-                <div class="sm:w-1/5">
+  const { jobs } = useSelector((state) => state.jobss); //jobss is the variable used in store.js and const{jobs} is the array used in the reducer
+  // const {available} = useSelector(state => state.availablee);
+  console.log(jobs);
 
-                        {/* if you remove flex from here the page is responsive but search bar gets disturb */}
-                        <div class='flex flex-wrap'>  
-                        <input
-                                    type="text"
-                                    name='search'
-                                    value= {text}
-                                    className=" px-4 py-5 bg-white border rounded-full focus:border-indigo-500 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                    placeholder="Search..."
-                                    onChange={handlesearch}
-                        />
-
-                        
-<input
-                                    type="text"
-                                    name='search'
-                                    value= {availables}
-                                    className=" px-4 py-5 bg-white border rounded-full focus:border-indigo-500 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                    placeholder="Search..."
-                                    onChange={handleavailable}
-                        />
-
-
-                        
-
-                        </div>
-
-                  </div>
-
-            </div>
-
-
+  return (
+    <div class="container mx-auto sm:px-4">
+      <form>
+        <div class="relative pt-4">
+          <input
+            type="search"
+            id="default-search"
+            onChange={handlesearch}
+            class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search Jobs..."
+            required
+          />
         </div>
-    );
+      </form>
+      <div class="flex flex-row ">
+        <div className="flex flex-wrap ">
+          {jobs && jobs.map((job) => <Card1 key={job._id} job={job} />)}
+        </div>
+      </div>
+    </div>
+  );
 }
-
 
 export default Search;

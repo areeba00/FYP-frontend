@@ -3,9 +3,11 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import jobreducer from './reducer/jobReducer';
 import availablereducer from './reducer/available';
+import filterReducer from './reducer/homejobreducer';
 const reducer = combineReducers({
     jobss: jobreducer,
-	availablee: availablereducer
+	availablee: availablereducer,
+	filter: filterReducer
 });
 
 const initialState = {};

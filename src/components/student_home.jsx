@@ -1,7 +1,22 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
+import { useState } from "react";
 
-function Layout() {
+function StudentHome() {
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+      const data = localStorage.getItem('userData1');
+      console.log('data is:' , data);
+      if (data) {
+        const parsedUserData = JSON.parse(data);
+        setUserData(parsedUserData);
+        console.log('paarsed data:',parsedUserData);
+      }
+  
+    }, []);
   return (
     <React.Fragment>
       <header class=" relative bg-white mx-auto px-4 sm:px-6 sticky top-0">
@@ -20,26 +35,35 @@ function Layout() {
               />
             </Link>
           </div>
-          <nav class="hidden md:flex space-x-10">
 
+          <nav class="hidden md:flex space-x-10">
+  <div class="flex items-center">
+          <Link
+            to="/student"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+          >
+            Profile
+          </Link>
+          {userData && (
+            <h1 class="ml-4">Welcome, {userData.firstName}!</h1>
+          )}
+        </div>
+      </nav>
+          {/* <nav class="hidden md:flex space-x-5 ml-24">
+            <Link
+              to="/student"
+              class="text-base font-medium text-gray-500 hover:text-gray-900"
+            >
+              {" "}
+              Profile
+            </Link>
           </nav>
 
           <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Link
-              to="/signin"
-              class="whitespace-nowrap text-base font-medium text-indigo-600 hover:text-indigo-700"
-            >
-              {" "}
-              Sign in{" "}
-            </Link>
-            <Link
-              to="/signup"
-              class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-            >
-              {" "}
-              Sign up{" "}
-            </Link>
-          </div>
+          {userData && (
+        <h1>Welcome, {userData.firstName}!</h1>
+      )}
+          </div> */}
         </div>
       </header>
       <Outlet />
@@ -95,4 +119,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default StudentHome;

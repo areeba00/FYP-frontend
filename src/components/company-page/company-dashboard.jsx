@@ -114,9 +114,6 @@ class CompanyDashboard extends Component {
                     10
                   </div>
                 </div>
-                <button className="btn" type="submit" onClick={this.Users}>
-                  get
-                </button>
               </div>
             </div>
             {/* <div class="relative sm:flex-grow sm:flex-1">col-sm</div>

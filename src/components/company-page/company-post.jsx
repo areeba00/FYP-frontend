@@ -15,6 +15,12 @@ function CompanyPost() {
     setInputs((inputs) => ({ ...inputs, [name]: value }));
   };
 
+  const handlejobImage = (event) => {
+    console.log(event.target.files[0]);
+    setInputs({
+      ...inputs,[event.target.name]:event.target.files[0],
+    })
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -22,11 +28,11 @@ function CompanyPost() {
       console.log(response);
     });
 
-    console.log(inputs);
+    // console.log(inputs);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} encType="multipart/form-data" >
       <div className="container mx-auto sm:px-4 ">
         <div class="flex flex-wrap ">
           <div class="sm:w-2/3 pr-4 pl-4">
@@ -105,17 +111,26 @@ function CompanyPost() {
                   <option value="" selected disabled hidden>
                     Choose here
                   </option>
-                  <option value="Graduate">Graduate</option>
-                  <option value="Experienced 1-2 years">
-                    Experienced 1-2 years
-                  </option>
-                  <option value="Experienced 2+ years">
-                    Experienced 2+ years
-                  </option>
-                  <option value="Masters">Masters</option>
-                  <option value="Studying">Studying</option>
+                  <option value="Fresh-Graduate">Fresh-Graduate</option>
+                  <option value="Less-than-a-year">Less-than-a-year</option>
+                  <option value="2+ years">2+ years</option>
+                  <option value="5+ years">5+ years</option>
                 </select>
               </div>
+            </div>
+
+            <div class="pt-5">
+              <label for="category">Job Category</label> <br />
+              <select id="category" name="category" onChange={handleChange}>
+                <option value="" selected disabled hidden>
+                  Choose here
+                </option>
+                <option value="Finance">Finance</option>
+                <option value="IT">IT</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Polymer">Polymer</option>
+              </select>
             </div>
 
             <div class="self-center font-normal whitespace-nowrap text-start text-gray-900 pt-8">
@@ -156,11 +171,17 @@ function CompanyPost() {
           </div>
 
           <div class="sm:w-1/3 pr-4 pl-4">
-            <div class="self-center text-2xl font-semibold whitespace-nowrap text-start text-gray-900 pt-8">
+            {/* <div class="self-center text-2xl font-semibold whitespace-nowrap text-start text-gray-900 pt-8">
               {" "}
-              Success Recruitments
+              Upload Image
             </div>
-            <img src={displayImage} alt="Logo" />
+            <div className="custom-file">
+              <input type="file"
+              className="custom-file-input"
+              name="file"
+              onChange={handlejobImage}/>
+
+            </div> */}
           </div>
         </div>
       </div>
