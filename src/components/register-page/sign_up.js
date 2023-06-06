@@ -1,4 +1,5 @@
-import React from "react";
+import React , {useState} from "react";
+import {Link} from "react-router-dom";
 function sign_up() {
   return (
     <div>
@@ -139,12 +140,12 @@ function sign_up() {
                   </button>
                   <p class="text-sm font-semibold mt-2 pt-1 mb-0">
                     already have an account?
-                    <a
-                      href="signin"
+                    <Link
+                      to="signin"
                       class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                     >
                       Sign in
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </form>

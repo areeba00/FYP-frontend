@@ -322,7 +322,7 @@ const Job = ({ match, history }) => {
                       information upfront to describe what it is and its mission
                       and values — leveraging the power of identity in brand
                       campaigns that reflect cultural identities rather than
-                      erasing them. It’s a great example of how to quickly and
+                      erasing them. Its a great example of how to quickly and
                       succinctly get your message across to site visitors.
                     </p>
                   </div>

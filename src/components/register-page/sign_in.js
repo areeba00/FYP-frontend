@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/signIn.jpg";
 import axios from "axios";
+import { useEffect } from "react";
+// import { BrowserRouter as Router, useHistory } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 function MyForm() {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
+
+  const [data, setData] = useState([]);
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -19,44 +24,127 @@ function MyForm() {
     setFormState({ ...formState, [event.target.name]: event.target.value });
   };
 
-  // const handleSubmit = (event) => {
-  //   if (!formState.email || !formState.password) {
-  //     setErrorMessage("Please fill in all the fields");
-  //     {
-  //       return;
-  //     }
-  //   }
-  //   const userData = {
-  //     email: formState.email,
-  //     password: formState.password
-  //   };
-
-  //   axios.post('/api/login/company', userData).then((response) => {
-  //     console.log(response.status, response.data.token);
-  //   });
-  //   event.preventDefault();
-  //   console.log(formState);
-  // };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
 
+    const userData = {
+      email: formState.name,
+      password: formState.job,
+    };
+
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/login/company",
-        formState
-      );
+      const response = await axios.post("/api/login/company", formState);
 
       // Handle the response from the backend API
-      console.log(response.data);
+      // console.log(response.data.token.token);
 
-      // Perform any necessary actions after successful authentication
-      // For example, store authentication token in local storage or Redux state
+      const token = await response.data.token.token;
+      // console.log("token is here");
+      // console.log(token);
+      // localStorage.setItem('token', token)
+      localStorage.setItem("token", "Bearer " + token);
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      // (this.$router.push({name:'/companyHome'}));
+      // console.log(response.config.headers);
+      // window.location = '/companyHome';
+      // }
+      console.log(response);
+      axios
+        .get("/api/login/gettoken", {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        })
+        .then((response) => {
+          setData(response.data.user_dta);
+          // console.log(response.data.user_dta);
+
+          const queryParams = new URLSearchParams();
+          queryParams.append(
+            "userData",
+            JSON.stringify(response.data.user_dta)
+          );
+          const queryString = queryParams.toString();
+
+          localStorage.setItem(
+            "userData",
+            JSON.stringify(response.data.user_dta)
+          );
+          console.log("Stored userData:", localStorage.getItem("userData"));
+          // console.log(queryString);
+          window.location.href = `/companyHome?${queryString}`;
+        })
+        .catch((error) => {
+          console.log(error);
+          // Handle errors
+        });
     } catch (error) {
       // Handle any errors that occurred during the request
       console.error(error);
     }
+
+    try {
+      const response = await axios.post("/api/login/applicant", formState);
+
+      // Handle the response from the backend API
+      // console.log(response.data.token.token);
+
+      const token = await response.data.token.token;
+      // console.log("token is here");
+      // console.log(token);
+      // localStorage.setItem('token', token)
+      localStorage.setItem("token", "Bearer " + token);
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      // (this.$router.push({name:'/companyHome'}));
+      // console.log(response.config.headers);
+      // window.location = '/companyHome';
+      // }
+      console.log(response);
+      axios
+        .get("/api/login/gettokenapplicant", {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        })
+        .then((response) => {
+          setData(response.data.user_dta);
+          // console.log(response.data.user_dta);
+
+          const queryParams = new URLSearchParams();
+          queryParams.append(
+            "userData1",
+            JSON.stringify(response.data.user_dta)
+          );
+          const queryString = queryParams.toString();
+
+          localStorage.setItem(
+            "userData1",
+            JSON.stringify(response.data.user_dta)
+          );
+          console.log("Stored userData:", localStorage.getItem("userData1"));
+          // console.log(queryString);
+          window.location.href = `/studenthome?${queryString}`;
+        })
+        .catch((error) => {
+          console.log(error);
+          // Handle errors
+        });
+    } catch (error) {
+      // Handle any errors that occurred during the request
+      console.error(error);
+    }
+  };
+
+  const handleRedirect = () => {
+    const queryParams = new URLSearchParams();
+    queryParams.append("userData", JSON.stringify(data));
+    const queryString = queryParams.toString();
+
+    localStorage.setItem("userData", JSON.stringify(data));
+    console.log("Stored userData:", localStorage.getItem("userData"));
+    console.log(queryString);
+    window.location.href = `/companyHome?${queryString}`;
   };
 
   return (
@@ -166,6 +254,7 @@ function MyForm() {
               </p>
 
               <button
+                onClick={handleSubmit}
                 type="submit"
                 class="inline-block rounded-lg px-5 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
               >

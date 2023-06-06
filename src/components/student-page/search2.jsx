@@ -42,6 +42,7 @@ function Search() {
 
   const { jobs } = useSelector((state) => state.jobss); //jobss is the variable used in store.js and const{jobs} is the array used in the reducer
   // const {available} = useSelector(state => state.availablee);
+  console.log(jobs);
 
   return (
     <div class="container mx-auto sm:px-4">
